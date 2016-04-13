@@ -17,11 +17,10 @@
     } else {
         $http.get(url)
             .success(function(res) {
-                var test = /(<div class="content">)(\s|\S)+/;
                 var news = res.split('<div class="content">')[1].split('</div>')[0];
                 var linkTest = /(href=")(\S)+(")/g;
-                var uriarray = news.match(linkTest);
-                var result = changeURI(news, uriarray);
+                var uriArray = news.match(linkTest);
+                var result = changeURI(news, uriArray);
                 $scope.new = result;
                 $scope._u = url;
             })
